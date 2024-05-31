@@ -1,0 +1,10 @@
+parameters:
+  level: max
+  reportMaybesInPropertyPhpDocTypes: false
+  treatPhpDocTypesAsCertain: false
+
+  paths:
+    - src/
+
+  excludePaths:
+    - vendor/

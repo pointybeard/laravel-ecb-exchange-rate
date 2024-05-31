@@ -1,0 +1,13 @@
+{
+    "rules": {
+        "declare_strict_types": true
+    },
+    "preset": "laravel",
+    "paths": [
+        "src",
+        "tests"
+    ],
+    "exclude": [
+        "vendor"
+    ]
+}

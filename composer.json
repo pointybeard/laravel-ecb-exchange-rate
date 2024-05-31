@@ -1,0 +1,83 @@
+{
+    "name": "pointybeard/laravel-ecb-exchange-rate",
+    "description": "A Laravel package to scrape exchange rates directly from the European Central Bank website.",
+    "license": "MIT",
+    "type": "library",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Alannah Kearney",
+            "email": "hi@alannahkearney.com",
+            "homepage": "http://alannahkearney.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=8.2",
+        "illuminate/support": "^10.0 || ^11.0",
+        "symfony/browser-kit": "^7.0",
+        "symfony/css-selector": "^7.0",
+        "symfony/http-client": "^7.0",
+        "webmozart/assert": "^1.10"
+    },
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2.16",
+        "larastan/larastan": "^2.0",
+        "laravel/pint": "^1.0",
+        "mockery/mockery": "^1.6",
+        "orchestra/testbench": "^9.0",
+        "php-parallel-lint/php-console-highlighter": "^1.0",
+        "php-parallel-lint/php-parallel-lint": "^1.3",
+        "phpstan/extension-installer": "^1.0",
+        "phpstan/phpstan-deprecation-rules": "^1.0",
+        "phpstan/phpstan-phpunit": "^1.0",
+        "phpstan/phpstan-webmozart-assert": "^1.0",
+        "phpunit/phpunit": "^10.0 || ^11.0",
+        "thecodingmachine/phpstan-safe-rule": "^1.0"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "pointybeard\\EcbExchangeRate\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "pointybeard\\EcbExchangeRate\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        },
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+        "composer-normalize": {
+            "indent-size": 4,
+            "indent-style": "space"
+        },
+        "laravel": {
+            "providers": [
+                "pointybeard\\EcbExchangeRate\\Providers\\EcbExchangeRateServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": [
+            "pint --test",
+            "parallel-lint --exclude vendor .",
+            "phpstan analyse --memory-limit=2G",
+            "phpunit"
+        ],
+        "tidy": [
+            "composer normalize",
+            "pint"
+        ]
+    }
+}
