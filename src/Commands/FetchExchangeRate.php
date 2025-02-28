@@ -12,22 +12,16 @@ use Webmozart\Assert\Assert;
 class FetchExchangeRate extends Command
 {
     /**
-     * The name and signature of the console command.
-     *
      * @var string
      */
     protected $signature = 'ecb-exchange-rate:fetch {currency=USD} {--refresh}';
 
     /**
-     * The console command description.
-     *
      * @var string
      */
     protected $description = 'Scrape the EUR to {currency} exchange rate from the ECB website';
 
     /**
-     * Create a new command instance.
-     *
      * @return void
      */
     public function __construct(protected EcbScraperService $ecb_scraper)
@@ -36,8 +30,6 @@ class FetchExchangeRate extends Command
     }
 
     /**
-     * Execute the console command.
-     *
      * @return int
      */
     public function handle()
