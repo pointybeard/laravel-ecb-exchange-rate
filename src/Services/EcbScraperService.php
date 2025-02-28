@@ -52,9 +52,13 @@ class EcbScraperService
             return $this->fetchAndCacheRate($cache_key, $xpath);
         }
 
-        return Cache::remember($cache_key, $this->cache_time, function () use ($xpath, $cache_key) {
+        $rate = Cache::remember($cache_key, $this->cache_time, function () use ($xpath, $cache_key) {
             return $this->fetchAndCacheRate($cache_key, $xpath);
         });
+
+        Assert::numeric($rate, 'Rate must be a number');
+
+        return (float) $rate;
     }
 
     protected function fetchAndCacheRate(string $cache_key, string $xpath): float
